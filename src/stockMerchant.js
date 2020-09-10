@@ -11,19 +11,20 @@ const stockMerchant = (num, socks) => {
     let matches = [];
     let counter = 0;
 
-    for(i = 0; i <= num; i++) {
+    for(let i = 0; i <= num; i++) {
         if(!matches.includes(socks[i])) {
             matches.push(socks[i]);
         } else {
             counter++;
-            matches.pop(socks[i]);
+            const index = matches.indexOf(socks[i])
+            matches.splice(index, 1)
         }
     }
 
     console.log(counter);
 }
 
-const numberOfSocks = 9;
-const socks = [10, 20, 20, 10, 10, 30, 50, 10, 30];
+const numberOfSocks = 10;
+const socks = [1, 1, 3, 1, 2, 1, 3, 3, 3, 3];
 
 stockMerchant(numberOfSocks, socks);
